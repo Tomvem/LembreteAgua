@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Hidratação</title>
+    <link rel="stylesheet" href="/www/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/www/javascript/script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙</button>
+
+        <h1>Drink Water</h1>
+        <div class="subtitle">Seu controle de hidratação inteligente</div>
+
+        <!-- Estrutura do Cronômetro -->
+        <div class="cronometro-section">
+            <label for="intervalo">Me avise a cada:</label>
+            <select id="intervalo">
+                <option value="1">1 minuto</option>
+                <option value="5">5 minutos</option>
+                <option value="10">10 minutos</option>
+                <option value="15">15 minutos</option>
+                <option value="20">20 minutos</option>
+                <option value="30">30 minutos</option>
+                <option value="60">1 hora</option>
+                <option value="120">2 horas</option>
+            </select>
+            <button id="btn-cronometro" onclick="toggleCronometro()">Iniciar Cronômetro</button>
+            <p id="status-tempo">Cronômetro parado.</p>
+        </div>
+
+        <!-- Mostrador Digital de Tempo -->
+        <div class="timer-box" id="timer">00:00</div>
+
+        <!-- Garrafa Visual -->
+        <div class="bottle-container">
+            <div class="bottle-neck"></div>
+            <div class="water" id="waterLevel"></div>
+        </div>
+
+        <div class="progress-text" id="progressDisplay">Consumido: 0ml / Meta: 2000ml</div>
+
+        <div class="options-grid">
+            <button class="btn-option" onclick="addWater(360)">360 ml</button>
+            <button class="btn-option" onclick="addWater(450)">450 ml</button>
+            <button class="btn-option" onclick="addWater(1000)">1 L</button>
+            <button class="btn-option" onclick="addWater(1500)">1.5 L</button>
+            <button class="btn-option" onclick="addWater(2000)">2 L</button>
+            <button class="btn-option btn-gole" onclick="addWater(50)">+ Apenas um Gole (50ml)</button>
+        </div>
+    </div>
+
+    <!-- Alerta de Tempo Esgotado -->
+    <div class="overlay" id="alarmOverlay">
+        <div class="alert-box">
+            <h2>⏱️ HORA DE BEBER ÁGUA!</h2>
+            <p>O seu cronômetro bateu. Vá buscar água agora mesmo.</p>
+            <button class="btn-confirm" onclick="dismissAlarm()">Já bebi / Continuar</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

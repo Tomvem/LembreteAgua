@@ -1,0 +1,272 @@
+        /* Variáveis de Cor */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --subtitle-color: #94a3b8;
+            --btn-bg: #334155;
+            --btn-hover: #475569;
+            --bottle-border: #64748b;
+            --water-grad: linear-gradient(180deg, #7dd3fc 0%, #0284c7 100%);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --subtitle-color: #64748b;
+            --btn-bg: #e2e8f0;
+            --btn-hover: #cbd5e1;
+            --bottle-border: #94a3b8;
+            --water-grad: linear-gradient(180deg, #38bdf8 0%, #0369a1 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 350px;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin: 10px 0 5px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--subtitle-color);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Nova Seção do Cronômetro Modificada */
+        .cronometro-section {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        [data-theme="light"] .cronometro-section {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .cronometro-section label {
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .cronometro-section select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: var(--btn-bg);
+            color: var(--text-color);
+            border: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        #btn-cronometro {
+            width: 100%;
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #btn-cronometro:hover {
+            background-color: #16a34a;
+        }
+
+        #btn-cronometro.ativo {
+            background-color: #ef4444;
+        }
+
+        #btn-cronometro.ativo:hover {
+            background-color: #dc2626;
+        }
+
+        #status-tempo {
+            font-size: 13px;
+            color: var(--subtitle-color);
+            margin: 8px 0 0 0;
+            text-align: center;
+        }
+
+        .timer-box {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #f43f5e;
+            margin-bottom: 20px;
+            background: rgba(244, 63, 94, 0.1);
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        /* Garrafa Visual */
+        .bottle-container {
+            position: relative;
+            width: 100px;
+            height: 180px;
+            border: 4px solid var(--bottle-border);
+            border-radius: 15px 15px 20px 20px;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .bottle-neck {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 15px;
+            border: 4px solid var(--bottle-border);
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .water {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--water-grad);
+            transition: height 0.5s ease-in-out;
+            box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-text {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Botões de Opções */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .btn-option {
+            background-color: var(--btn-bg);
+            border: none;
+            color: var(--text-color);
+            padding: 12px 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn-option:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .btn-gole {
+            grid-column: span 3;
+            background-color: #0284c7;
+            color: white;
+        }
+
+        .btn-gole:hover {
+            background-color: #0369a1;
+        }
+
+        /* Alerta de Bloqueio */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        [data-theme="light"] .overlay {
+            background-color: rgba(241, 245, 249, 0.95);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .alert-box {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-box h2 {
+            font-size: 32px;
+            color: #0284c7;
+            margin-top: 0;
+        }
+
+        .btn-confirm {
+            background-color: #22c55e;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
